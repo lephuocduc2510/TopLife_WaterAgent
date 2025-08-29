@@ -182,33 +182,41 @@ const Home = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="testimonials-section py-8">
+      <section className="testimonials-section-new">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
-            <div className="section-experience-badge">
-              <div className="text-5xl font-bold text-blue-900 mr-3">{testimonials.experienceYears}</div>
-              <div className="text-lg font-bold text-blue-900">{testimonials.experienceLabel}</div>
-            </div>
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">{testimonials.title}</h2>
-            <p className="text-600 mb-4">
-              {testimonials.description}
+            <h2 className="testimonials-title">CẢM NHẬN CỦA KHÁCH HÀNG</h2>
+            <p className="testimonials-subtitle">
+              Năm 2019, Nước uống Toplife có hơn 1500 đối tác và 30.000 khách hàng trải rộng khu vực Đà nẵng.
             </p>
+            <div className="testimonials-divider">
+              <div className="testimonials-icon">
+                <i className="pi pi-comments"></i>
+              </div>
+            </div>
           </div>
           
-          <Carousel 
-            value={testimonials.items}
-            itemTemplate={testimonialTemplate}
-            numVisible={2}
-            numScroll={1}
-            responsiveOptions={[
-              {
-                breakpoint: '768px',
-                numVisible: 1,
-                numScroll: 1
-              }
-            ]}
-            className="testimonials-carousel"
-          />
+          <div className="testimonials-grid">
+            {testimonials.items.map((testimonial, index) => (
+              <div key={testimonial.id} className="testimonial-card-new">
+                <div className="testimonial-content-new">
+                  <p className="testimonial-quote">"{testimonial.content}"</p>
+                  <div className="testimonial-author">
+                    <div className="author-avatar">
+                      <img 
+                        src={testimonial.image} 
+                        alt={testimonial.name}
+                      />
+                    </div>
+                    <div className="author-info">
+                      <h5 className="author-name">{testimonial.name}</h5>
+                      <span className="author-role">{testimonial.role}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </div>
