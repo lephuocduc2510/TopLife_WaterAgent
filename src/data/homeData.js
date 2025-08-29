@@ -68,19 +68,22 @@ export const homeData = {
       title: 'VỀ SẢN PHẨM',
       description: 'Nước uống Toplife với nguồn nước từ thiên nhiên, được xử lý qua công nghệ lọc nước hàng đầu, công ty luôn đảm bảo chất lượng nước uống tốt nhất tới khách hàng',
       image: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/learn_model-image-1.png?1717065557897',
-      buttonText: 'Xem Thêm'
+      buttonText: 'Xem Thêm',
+      icon: 'pi-shopping-bag'
     },
     {
       title: 'VỀ KÊNH PHÂN PHỐI',
       description: 'Nước uống Toplife có mặt tại hơn 1400 điểm đại lý phân phối, văn phòng, bệnh viện, tại khu vực Đà Nẵng',
       image: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/learn_model-image-2.png?1717065557897',
-      buttonText: 'Xem Thêm'
+      buttonText: 'Xem Thêm',
+      icon: 'pi-dollar'
     },
     {
       title: 'VỀ KINH NGHIỆM',
       description: 'Trải qua hơn 16 năm vận hành, đội ngũ nước uống Toplife luôn hướng tới sự đổi mới, sáng tạo, phát triển để mang sản phẩm tốt nhất cho người tiêu dùng',
       image: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/learn_model-image-3.png?1717065557897',
-      buttonText: 'Xem Thêm'
+      buttonText: 'Xem Thêm',
+      icon: 'pi-star'
     }
   ],
 
@@ -88,7 +91,7 @@ export const homeData = {
   video: {
     title: 'Video Giới Thiệu',
     thumbnail: 'https://bizweb.dktcdn.net/thumb/grande/100/515/900/themes/949247/assets/introduce-image.jpg?1717065557897',
-    url: '#' // Replace with actual video URL
+    url: 'https://www.w3schools.com/html/mov_bbb.mp4' // Sample video for demonstration
   },
 
   // Products section data

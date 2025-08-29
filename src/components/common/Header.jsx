@@ -83,12 +83,12 @@ const Header = () => {
   )
 
   return (
-    <div className="surface-0 border-bottom-1 surface-border">
+    <div className="surface-0 border-bottom-1 surface-border bg-white shadow-2">
       <Menubar 
         model={menuItems} 
         start={start} 
         end={end} 
-        className="border-none bg-transparent px-3 py-2"
+        className="border-none bg-white px-4 py-3"
       />
     </div>
   )
