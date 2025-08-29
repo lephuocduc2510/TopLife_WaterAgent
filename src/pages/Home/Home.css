@@ -1,0 +1,303 @@
+/* Home page styles */
+
+.home-page {
+  width: 100%;
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-background {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+}
+
+.hero-content h1 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+}
+
+/* Statistics Section */
+.statistics-section {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.statistics-item {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.statistics-item:hover {
+  transform: translateY(-5px);
+}
+
+.statistics-item i {
+  transition: color 0.3s ease;
+}
+
+.statistics-item:hover i {
+  color: #1976d2 !important;
+}
+
+/* Learn Sections */
+.learn-sections .p-card {
+  height: 100%;
+  transition: box-shadow 0.3s ease;
+}
+
+.learn-sections .p-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.learn-sections img {
+  transition: transform 0.3s ease;
+}
+
+.learn-sections img:hover {
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features-section {
+  background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+}
+
+.feature-card {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border-color: #1976d2;
+}
+
+.feature-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+}
+
+.feature-card:hover .feature-icon-wrapper i {
+  color: white !important;
+}
+
+/* Video Section */
+.video-wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.video-wrapper img {
+  transition: transform 0.3s ease;
+}
+
+.video-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.video-wrapper .p-button {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #1976d2;
+  transition: all 0.3s ease;
+}
+
+.video-wrapper .p-button:hover {
+  background: #1976d2;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* Products Section */
+.products-section {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+}
+
+.product-card {
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.testimonial-item .p-card {
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.testimonial-item .p-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: #1976d2;
+}
+
+.testimonial-item img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-item:hover img {
+  transform: scale(1.1);
+}
+
+/* Carousel customization */
+.testimonials-carousel .p-carousel-indicators {
+  padding: 1rem 0;
+}
+
+.testimonials-carousel .p-carousel-indicator > button {
+  background-color: #bbdefb;
+  border: none;
+  width: 12px;
+  height: 12px;
+  margin: 0 0.25rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.testimonials-carousel .p-carousel-indicator.p-highlight > button {
+  background-color: #1976d2;
+  transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .statistics-item {
+    margin-bottom: 1rem;
+  }
+  
+  .learn-sections .grid {
+    flex-direction: column !important;
+  }
+  
+  .feature-card {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content h2 {
+    font-size: 1.125rem;
+  }
+  
+  .statistics-item h3 {
+    font-size: 2rem;
+  }
+  
+  .feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-icon-wrapper i {
+    font-size: 2rem;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.statistics-item,
+.feature-card,
+.learn-sections .p-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1976d2;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1565c0;
+}

@@ -4,48 +4,29 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 // PrimeReact components
 import { Button } from 'primereact/button'
 import { Card } from 'primereact/card'
-import { Menubar } from 'primereact/menubar'
-import { InputText } from 'primereact/inputtext'
+
+// Components
+import Header from './components/common/Header'
+import Footer from './components/common/Footer'
 
 // Pages
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const menuItems = [
-    {
-      label: 'Home',
-      icon: 'pi pi-fw pi-home',
-      command: () => {}
-    },
-    {
-      label: 'About',
-      icon: 'pi pi-fw pi-info-circle',
-      command: () => {}
-    },
-    {
-      label: 'Contact',
-      icon: 'pi pi-fw pi-envelope',
-      command: () => {}
-    }
-  ]
-
-  const start = <img alt="logo" src="https://primefaces.org/cdn/primereact/images/logo.png" height="40" className="mr-2"></img>
-  const end = <InputText placeholder="Search" type="text" className="w-full sm:w-auto" />
-
   return (
     <Router>
-      <div className="App">
-        <Menubar model={menuItems} start={start} end={end} />
+      <div className="App min-h-screen flex flex-column">
+        <Header />
         
-        <div className="p-4">
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/demo" element={
-              <div className="flex flex-column align-items-center">
+              <div className="flex flex-column align-items-center p-4">
                 <Card title="Welcome to TopLife WaterAgent" className="w-full md:w-30rem mt-4">
                   <p className="m-0">
                     This is a React.js project built with Vite and PrimeReact.
@@ -63,7 +44,9 @@ function App() {
               </div>
             } />
           </Routes>
-        </div>
+        </main>
+
+        <Footer />
       </div>
     </Router>
   )
