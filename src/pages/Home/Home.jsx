@@ -8,6 +8,11 @@ import './Home.css'
 
 const Home = () => {
   const { hero, statistics, features, learnSections, video, products, testimonials } = homeData
+  const [isVideoPlaying, setIsVideoPlaying] = React.useState(false)
+
+  const handleVideoPlay = () => {
+    setIsVideoPlaying(true)
+  }
 
   const testimonialTemplate = (testimonial) => {
     return (
@@ -36,7 +41,7 @@ const Home = () => {
           className="hero-background absolute top-0 left-0 w-full h-full bg-cover bg-center"
           style={{
             backgroundImage: `url(${hero.backgroundImage})`,
-            filter: 'brightness(0.7)'
+            filter: 'brightness(0.5)'
           }}
         ></div>
         <div className="hero-content relative z-1 text-center text-white py-8">
@@ -61,138 +66,117 @@ const Home = () => {
       </section>
 
       {/* Statistics Section */}
-      <section className="statistics-section py-6 bg-blue-50">
+      <section className="statistics-section">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="grid grid-nogutter">
+          <div className="custom-grid">
             {statistics.map((stat, index) => (
-              <div key={index} className="col-12 md:col-3 text-center p-3">
-                <div className="statistics-item p-4">
-                  <i className={`pi ${stat.icon} text-4xl text-blue-600 mb-3`}></i>
-                  <h3 className="text-3xl font-bold text-blue-900 mb-2">{stat.number}</h3>
-                  <p className="text-600 font-medium">{stat.label}</p>
-                </div>
+              <div key={index} className="statistics-item">
+                <i className={`pi ${stat.icon}`}></i>
+                <h3>{stat.number}</h3>
+                <p>{stat.label}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features & Video Combined Section */}
+      <section className="features-video-section">
+        <div className="max-w-6xl mx-auto px-2">
+          <div className="text-center mb-6">
+            <h2 className="text-3xl font-bold text-blue-900 mb-3">
+              NƯỚC UỐNG TOPLIFE - THƯƠNG HIỆU NƯỚC UỐNG TINH KHIẾT ĐÓNG CHAI HÀNG ĐẦU TẠI ĐÀ NẴNG
+            </h2>
+            <p className="text-600 line-height-3 max-w-4xl mx-auto mb-6">
+              Công ty TNHH Nam Trung Hải được thành lập từ năm 2008, có 16 năm kinh nghiệm phục vụ nhu cầu cung cấp nước uống tinh khiết cho thị trường miền Trung, Đà Nẵng. Với mong muốn "luôn cố gắng thay đổi và phát triển mạnh mẽ vì mục đích phục vụ sức khoẻ cộng đồng".
+            </p>
+          </div>
+          
+          <div className="features-video-grid">
+            {/* Features Side */}
+            <div className="features-side">
+              <div className="features-list">
+                {features.map((feature, index) => (
+                  <div key={index} className="feature-item">
+                    <div className="feature-icon-small">
+                      <i className={`pi ${feature.icon}`}></i>
+                    </div>
+                    <div className="feature-content">
+                      <h4>{feature.title}</h4>
+                      <p>{feature.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* Video Side */}
+            <div className="video-side">
+              <div className="video-wrapper-combined">
+                <img 
+                  src={video.thumbnail}
+                  alt={video.title}
+                  className="w-full h-auto"
+                />
+                <div className="video-play-button">
+                  <Button 
+                    icon="pi pi-play" 
+                    className="p-button-rounded"
+                    tooltip={video.title}
+                  />
+                </div>
+              </div>
+              <h3 className="video-title">{video.title}</h3>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Learn Sections */}
-      <section className="learn-sections py-8">
+      <section className="learn-sections">
         <div className="max-w-6xl mx-auto px-4">
-          {learnSections.map((section, index) => (
-            <div key={index} className="mb-8">
-              <div className={`grid grid-nogutter align-items-center ${index % 2 === 1 ? 'flex-row-reverse' : ''}`}>
-                <div className="col-12 md:col-6 p-4">
-                  <Card className="h-full">
-                    <h3 className="text-2xl font-bold text-blue-900 mb-3">{section.title}</h3>
-                    <p className="text-600 line-height-3 mb-4">{section.description}</p>
-                    <Button 
-                      label={section.buttonText} 
-                      className="p-button-outlined"
-                      icon="pi pi-arrow-right"
-                    />
-                  </Card>
+          <div className="learn-items-grid">
+            {learnSections.map((section, index) => (
+              <div key={index} className="learn-item-compact">
+                <div className="learn-icon-compact">
+                  <i className={`pi ${section.icon || 'pi-star'}`}></i>
                 </div>
-                <div className="col-12 md:col-6 p-4">
-                  <img 
-                    src={section.image} 
-                    alt={section.title}
-                    className="w-full h-auto border-round shadow-3"
+                <div className="learn-content-compact">
+                  <h3>{section.title}</h3>
+                  <p>{section.description}</p>
+                  <Button 
+                    label={section.buttonText} 
+                    className="p-button-outlined learn-button-compact"
+                    icon="pi pi-arrow-right"
                   />
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section py-8 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-blue-900 mb-3">
-              NƯỚC UỐNG TOPLIFE - THƯƠNG HIỆU NƯỚC UỐNG TINH KHIẾT ĐÓNG CHAI HÀNG ĐẦU TẠI ĐÀ NẴNG
-            </h2>
-          </div>
-          <div className="grid grid-nogutter">
-            {features.map((feature, index) => (
-              <div key={index} className="col-12 md:col-6 lg:col-4 p-3">
-                <Card className="h-full text-center feature-card">
-                  <div className="flex flex-column align-items-center">
-                    <div className="feature-icon-wrapper mb-3">
-                      <i className={`pi ${feature.icon} text-4xl text-blue-600`}></i>
-                    </div>
-                    <h4 className="font-bold text-blue-900 mb-2">{feature.title}</h4>
-                    <p className="text-600 text-sm line-height-3">{feature.description}</p>
-                  </div>
-                </Card>
-              </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Video Section */}
-      <section className="video-section py-8">
-        <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="video-wrapper relative">
-            <img 
-              src={video.thumbnail}
-              alt={video.title}
-              className="w-full h-auto border-round shadow-3"
-            />
-            <div className="absolute top-50 left-50 transform -translate-x-50 -translate-y-50">
-              <Button 
-                icon="pi pi-play" 
-                className="p-button-rounded p-button-lg"
-                style={{ width: '4rem', height: '4rem' }}
-                tooltip={video.title}
-              />
-            </div>
-          </div>
-          <h3 className="text-xl font-bold text-blue-900 mt-4">{video.title}</h3>
         </div>
       </section>
 
       {/* Product Section */}
-      <section className="products-section py-8 bg-blue-50">
-        <div className="max-w-6xl mx-auto px-4">
+      <section className="products-section-new">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="text-center mb-6">
-            <div className="flex align-items-center justify-content-center mb-3">
-              <div className="text-5xl font-bold text-blue-900 mr-3">{products.experienceYears}</div>
-              <div className="text-left">
-                <div className="text-lg font-bold text-blue-900">{products.experienceLabel}</div>
-              </div>
-            </div>
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">{products.title}</h2>
-            <p className="text-600 line-height-3 max-w-3xl mx-auto">
-              {products.description}
+            <h2 className="text-3xl font-bold text-blue-900 mb-4">SẢN PHẨM NỔI BẬT</h2>
+            <p className="text-600 line-height-3 max-w-4xl mx-auto mb-6">
+              Với đội ngũ Nước uống Toplife, việc phục vụ nước uống không chỉ dừng lại ở việc thoả mãn nhu cầu cung cấp nước của cơ thể mà còn mang lại nhiều lợi ích cho sức khoẻ, con người, cộng đồng, xã hội. Hãy chung tay cùng chúng tôi đóng góp những giá trị bền vững, trường tồn.
             </p>
           </div>
           
-          <div className="grid grid-nogutter justify-content-center">
-            {products.items.map((product) => (
-              <div key={product.id} className="col-12 md:col-6 lg:col-4 p-3">
-                <Card className="text-center product-card">
-                  <img 
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-12rem object-fit-cover mb-3"
-                  />
-                  <h4 className="font-bold text-blue-900 mb-3">{product.name}</h4>
-                  <div className="flex gap-2 justify-content-center">
-                    {product.buttons.map((btn, btnIndex) => (
-                      <Button 
-                        key={btnIndex}
-                        label={btn.text} 
-                        className={btn.type === 'outlined' ? 'p-button-outlined p-button-sm' : 'p-button-sm'}
-                      />
-                    ))}
-                  </div>
-                </Card>
+          <div className="product-showcase">
+            <div className="product-single-item">
+              <div className="product-image-wrapper">
+                <img 
+                  src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/index_product_image_1.png?1717065557897"
+                  alt="Nước uống tinh khiết TopLife"
+                  className="product-main-image"
+                />
               </div>
-            ))}
+              <h3 className="product-title">NƯỚC UỐNG TINH KHIẾT TOPLIFE</h3>
+            </div>
           </div>
         </div>
       </section>
@@ -201,11 +185,9 @@ const Home = () => {
       <section className="testimonials-section py-8">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
-            <div className="flex align-items-center justify-content-center mb-3">
+            <div className="section-experience-badge">
               <div className="text-5xl font-bold text-blue-900 mr-3">{testimonials.experienceYears}</div>
-              <div className="text-left">
-                <div className="text-lg font-bold text-blue-900">{testimonials.experienceLabel}</div>
-              </div>
+              <div className="text-lg font-bold text-blue-900">{testimonials.experienceLabel}</div>
             </div>
             <h2 className="text-3xl font-bold text-blue-900 mb-4">{testimonials.title}</h2>
             <p className="text-600 mb-4">
