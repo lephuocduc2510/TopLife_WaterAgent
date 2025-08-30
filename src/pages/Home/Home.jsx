@@ -4,6 +4,7 @@ import { Card } from 'primereact/card'
 import { Carousel } from 'primereact/carousel'
 import { Divider } from 'primereact/divider'
 import { homeData } from '../../data'
+import ProductCard from '../../components/ProductCard'
 import './Home.css'
 
 const Home = () => {
@@ -15,11 +16,11 @@ const Home = () => {
     setIsVideoPlaying(true)
   }
 
-  // Auto slide change
+  // Auto slide change - slower
   React.useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % hero.slides.length)
-    }, 5000) // Change slide every 5 seconds
+    }, 8000) // Change slide every 8 seconds (slower)
 
     return () => clearInterval(interval)
   }, [hero.slides.length])
@@ -86,9 +87,9 @@ const Home = () => {
           numVisible={1} 
           numScroll={1}
           showNavigators={true}
-          showIndicators={true}
+          showIndicators={false}
           circular={true}
-          autoplayInterval={5000}
+          autoplayInterval={8000}
           className="hero-carousel"
           page={currentSlide}
           onPageChange={(e) => setCurrentSlide(e.page)}
@@ -145,18 +146,33 @@ const Home = () => {
             {/* Video Side */}
             <div className="video-side">
               <div className="video-wrapper-combined">
-                <img 
-                  src={video.thumbnail}
-                  alt={video.title}
-                  className="w-full h-auto"
-                />
-                <div className="video-play-button">
-                  <Button 
-                    icon="pi pi-play" 
-                    className="p-button-rounded"
-                    tooltip={video.title}
-                  />
-                </div>
+                {!isVideoPlaying ? (
+                  <>
+                    <img 
+                      src={video.thumbnail}
+                      alt={video.title}
+                      className="w-full h-auto"
+                    />
+                    <div className="video-play-button">
+                      <Button 
+                        icon="pi pi-play" 
+                        className="p-button-rounded"
+                        tooltip={video.title}
+                        onClick={handleVideoPlay}
+                      />
+                    </div>
+                  </>
+                ) : (
+                  <video 
+                    src={video.videoUrl || "https://www.w3schools.com/html/mov_bbb.mp4"}
+                    controls
+                    autoPlay
+                    className="w-full h-auto"
+                    style={{ borderRadius: '15px' }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                )}
               </div>
               <h3 className="video-title">{video.title}</h3>
             </div>
@@ -190,25 +206,18 @@ const Home = () => {
 
       {/* Product Section */}
       <section className="products-section-new">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-bold text-blue-900 mb-4">SẢN PHẨM NỔI BẬT</h2>
+            <h2 className="text-3xl font-bold text-blue-900 mb-4">{products.title}</h2>
             <p className="text-600 line-height-3 max-w-4xl mx-auto mb-6">
-              Với đội ngũ Nước uống Toplife, việc phục vụ nước uống không chỉ dừng lại ở việc thoả mãn nhu cầu cung cấp nước của cơ thể mà còn mang lại nhiều lợi ích cho sức khoẻ, con người, cộng đồng, xã hội. Hãy chung tay cùng chúng tôi đóng góp những giá trị bền vững, trường tồn.
+              {products.description}
             </p>
           </div>
           
-          <div className="product-showcase">
-            <div className="product-single-item">
-              <div className="product-image-wrapper">
-                <img 
-                  src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/index_product_image_1.png?1717065557897"
-                  alt="Nước uống tinh khiết TopLife"
-                  className="product-main-image"
-                />
-              </div>
-              <h3 className="product-title">NƯỚC UỐNG TINH KHIẾT TOPLIFE</h3>
-            </div>
+          <div className="products-grid">
+            {products.items.map((product, index) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </div>
       </section>
@@ -232,8 +241,7 @@ const Home = () => {
             {testimonials.items.map((testimonial, index) => (
               <div key={testimonial.id} className="testimonial-card-new">
                 <div className="testimonial-content-new">
-                  <p className="testimonial-quote">"{testimonial.content}"</p>
-                  <div className="testimonial-author">
+                  <div className="testimonial-author-top">
                     <div className="author-avatar">
                       <img 
                         src={testimonial.image} 
@@ -245,6 +253,7 @@ const Home = () => {
                       <span className="author-role">{testimonial.role}</span>
                     </div>
                   </div>
+                  <p className="testimonial-quote">"{testimonial.content}"</p>
                 </div>
               </div>
             ))}
