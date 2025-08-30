@@ -9,9 +9,52 @@ import './Home.css'
 const Home = () => {
   const { hero, statistics, features, learnSections, video, products, testimonials } = homeData
   const [isVideoPlaying, setIsVideoPlaying] = React.useState(false)
+  const [currentSlide, setCurrentSlide] = React.useState(0)
 
   const handleVideoPlay = () => {
     setIsVideoPlaying(true)
+  }
+
+  // Auto slide change
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % hero.slides.length)
+    }, 5000) // Change slide every 5 seconds
+
+    return () => clearInterval(interval)
+  }, [hero.slides.length])
+
+  const slideTemplate = (slide) => {
+    return (
+      <div className="hero-slide">
+        <div 
+          className="hero-background absolute top-0 left-0 w-full h-full bg-cover bg-center"
+          style={{
+            backgroundImage: `url(${slide.backgroundImage})`,
+            filter: 'brightness(0.5)'
+          }}
+        ></div>
+        <div className="hero-content relative z-1 text-center text-white py-8">
+          <div className="max-w-4xl mx-auto px-4">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 slide-fade-in">
+              {slide.title}
+            </h1>
+            <h2 className="text-xl md:text-2xl mb-6 text-blue-100 slide-fade-in">
+              {slide.subtitle}
+            </h2>
+            <p className="text-lg mb-6 max-w-2xl mx-auto line-height-3 slide-fade-in">
+              {slide.description}
+            </p>
+            <Button 
+              label={slide.ctaText} 
+              icon="pi pi-arrow-right"
+              className="p-button-warning p-button-lg slide-fade-in"
+              size="large"
+            />
+          </div>
+        </div>
+      </div>
+    )
   }
 
   const testimonialTemplate = (testimonial) => {
@@ -35,34 +78,21 @@ const Home = () => {
 
   return (
     <div className="home-page">
-      {/* Hero Section */}
+      {/* Hero Banner Slider */}
       <section className="hero-section relative">
-        <div 
-          className="hero-background absolute top-0 left-0 w-full h-full bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${hero.backgroundImage})`,
-            filter: 'brightness(0.5)'
-          }}
-        ></div>
-        <div className="hero-content relative z-1 text-center text-white py-8">
-          <div className="max-w-4xl mx-auto px-4">
-            <h1 className="text-4xl md:text-6xl font-bold mb-4">
-              {hero.title}
-            </h1>
-            <h2 className="text-xl md:text-2xl mb-6 text-blue-100">
-              {hero.subtitle}
-            </h2>
-            <p className="text-lg mb-6 max-w-2xl mx-auto line-height-3">
-              {hero.description}
-            </p>
-            <Button 
-              label={hero.ctaText} 
-              icon="pi pi-arrow-right"
-              className="p-button-warning p-button-lg"
-              size="large"
-            />
-          </div>
-        </div>
+        <Carousel 
+          value={hero.slides} 
+          itemTemplate={slideTemplate}
+          numVisible={1} 
+          numScroll={1}
+          showNavigators={true}
+          showIndicators={true}
+          circular={true}
+          autoplayInterval={5000}
+          className="hero-carousel"
+          page={currentSlide}
+          onPageChange={(e) => setCurrentSlide(e.page)}
+        />
       </section>
 
       {/* Statistics Section */}
@@ -71,7 +101,9 @@ const Home = () => {
           <div className="custom-grid">
             {statistics.map((stat, index) => (
               <div key={index} className="statistics-item">
-                <i className={`pi ${stat.icon}`}></i>
+                <div className="stat-icon" style={{ color: stat.color }}>
+                  {stat.icon}
+                </div>
                 <h3>{stat.number}</h3>
                 <p>{stat.label}</p>
               </div>

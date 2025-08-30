@@ -11,6 +11,8 @@ import Footer from './components/common/Footer'
 
 // Pages
 import Home from './pages/Home/Home'
+import About from './pages/About'
+
 
 import './App.css'
 
@@ -25,6 +27,7 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
             <Route path="/demo" element={
               <div className="flex flex-column align-items-center p-4">
                 <Card title="Welcome to TopLife WaterAgent" className="w-full md:w-30rem mt-4">

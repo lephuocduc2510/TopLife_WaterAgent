@@ -8,28 +8,46 @@
 
 /* Hero Section - Exact replica of TopLife */
 .hero-section {
-  height: 80vh;
+  height: 100vh;
+  overflow: hidden;
   position: relative;
+}
+
+.hero-carousel {
+  height: 100vh;
+}
+
+.hero-carousel .p-carousel-content {
+  height: 100vh;
+}
+
+.hero-carousel .p-carousel-container {
+  height: 100vh;
+}
+
+.hero-carousel .p-carousel-items-container {
+  height: 100vh;
+}
+
+.hero-carousel .p-carousel-items-content {
+  height: 100vh;
+}
+
+.hero-carousel .p-carousel-item {
+  height: 100vh;
+}
+
+.hero-slide {
+  position: relative;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
-  overflow: hidden;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  opacity: 0.3;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
+  z-index: 10;
+  animation: slideUp 1s ease-out;
   text-align: center;
   padding: 1.5rem;
   max-width: 900px;
@@ -83,6 +101,81 @@
   box-shadow: 0 8px 25px rgba(245, 124, 0, 0.5);
 }
 
+.slide-fade-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-fade-in:nth-child(1) { animation-delay: 0.2s; }
+.slide-fade-in:nth-child(2) { animation-delay: 0.4s; }
+.slide-fade-in:nth-child(3) { animation-delay: 0.6s; }
+.slide-fade-in:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Carousel Navigation Customization */
+.hero-carousel .p-carousel-prev,
+.hero-carousel .p-carousel-next {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  color: white !important;
+  width: 3rem !important;
+  height: 3rem !important;
+  border-radius: 50% !important;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.hero-carousel .p-carousel-prev:hover,
+.hero-carousel .p-carousel-next:hover {
+  background: rgba(255, 204, 2, 0.8) !important;
+  border-color: #ffcc02 !important;
+  transform: scale(1.1);
+}
+
+/* Carousel Indicators */
+.hero-carousel .p-carousel-indicators {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.hero-carousel .p-carousel-indicator button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  background: rgba(255, 255, 255, 0.5) !important;
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  transition: all 0.3s ease;
+}
+
+.hero-carousel .p-carousel-indicator.p-highlight button {
+  background: #ffcc02 !important;
+  border-color: #ffcc02 !important;
+  transform: scale(1.2);
+}
+
 /* Statistics Section - Blue background like TopLife */
 .statistics-section {
   background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
@@ -130,6 +223,14 @@
 .statistics-item i {
   font-size: 3.5rem !important;
   color: #ffcc02;
+  margin-bottom: 1.2rem;
+  display: block;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  filter: drop-shadow(0 0 8px rgba(255, 204, 2, 0.3));
+}
+
+.stat-icon {
+  font-size: 3.5rem;
   margin-bottom: 1.2rem;
   display: block;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.3);

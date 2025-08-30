@@ -16,7 +16,7 @@ export const homeData = {
         title: 'CHẤT LƯỢNG HÀNG ĐẦU',
         subtitle: 'CÔNG NGHỆ LỌC NƯỚC HIỆN ĐẠI - ĐẢM BẢO AN TOÀN TUYỆT ĐỐI',
         description: 'Sử dụng công nghệ lọc nước hiện đại nhất, quy trình sản xuất khép kín đảm bảo chất lượng nước uống tinh khiết đến từng giọt.',
-        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_2.jpg?1717065557897',
+        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897',
         ctaText: 'TÌM HIỂU THÊM'
       },
       {
@@ -24,7 +24,7 @@ export const homeData = {
         title: 'PHỤC VỤ TẬN TÂM',
         subtitle: 'GIAO HÀNG NHANH CHÓNG - DỊCH VỤ CHUYÊN NGHIỆP',
         description: 'Mạng lưới phân phối rộng khắp Đà Nẵng với đội ngũ giao hàng chuyên nghiệp, đảm bảo giao hàng đúng hẹn.',
-        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_3.jpg?1717065557897',
+        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897',
         ctaText: 'LIÊN HỆ NGAY'
       }
     ]
@@ -128,27 +128,18 @@ export const homeData = {
     items: [
       {
         id: 1,
-        name: 'Nước Uống Tinh Khiết TopLife 1L',
-        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
-        description: 'Chai 1 lít tiện lợi cho gia đình nhỏ',
-        features: ['Dung tích 1L', 'Phù hợp cá nhân', 'Tiện mang theo', 'Chất lượng cao'],
-        category: 'Chai nhỏ'
-      },
-      {
-        id: 2,
-        name: 'Nước Uống Tinh Khiết TopLife 5L',
-        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
-        description: 'Chai 5 lít phù hợp cho gia đình trung bình',
-        features: ['Dung tích 5L', 'Tiết kiệm', 'Phù hợp gia đình', 'Đảm bảo chất lượng'],
-        category: 'Chai vừa'
-      },
-      {
-        id: 3,
-        name: 'Nước Uống Tinh Khiết TopLife 15L',
-        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
-        description: 'Chai 15 lít cho gia đình đông người và văn phòng',
-        features: ['Dung tích 15L', 'Tiết kiệm tối đa', 'Phù hợp văn phòng', 'Giao hàng tận nơi'],
-        category: 'Chai lớn'
+        name: 'NƯỚC UỐNG TINH KHIẾT TOPLIFE',
+        image: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/learn.svg?1717065557897',
+        buttons: [
+          {
+            text: 'Nước uống tinh khiết Toplife',
+            type: 'outlined'
+          },
+          {
+            text: 'Chi tiết',
+            type: 'primary'
+          }
+        ]
       }
     ]
   },

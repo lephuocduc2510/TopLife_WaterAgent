@@ -1,47 +1,72 @@
 import React from 'react'
+import { Card } from 'primereact/card'
 import { Button } from 'primereact/button'
 import { Badge } from 'primereact/badge'
+import { useNavigate } from 'react-router-dom'
 import './ProductCard.css'
 
 const ProductCard = ({ product }) => {
+  const navigate = useNavigate()
+
+  const handleViewDetail = () => {
+    navigate(`/product/${product.id}`)
+  }
+
+  const handleQuickOrder = () => {
+    const message = `Xin chào! Tôi muốn đặt ${product.name}. Vui lòng liên hệ lại để tư vấn.`
+    const phoneNumber = '0926967979'
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
+  }
+
   return (
-    <div className="product-card">
+    <Card className="product-card">
       <div className="product-image-container">
         <img 
           src={product.image} 
           alt={product.name}
           className="product-image"
+          onClick={handleViewDetail}
         />
+        <Badge value={product.category} className="category-badge" />
       </div>
       
       <div className="product-info">
-        <div className="product-category">
-          <Badge value={product.category} className="product-category-badge" />
-        </div>
-        
-        <h3 className="product-name">{product.name}</h3>
-        
-        <p className="product-description">{product.description}</p>
+        <h3 className="product-name" onClick={handleViewDetail}>
+          {product.name}
+        </h3>
+        <p className="product-description">
+          {product.description}
+        </p>
         
         <div className="product-features">
-          {product.features.map((feature, index) => (
-            <div key={index} className="product-feature">
-              <i className="pi pi-check-circle"></i>
-              <span>{feature}</span>
-            </div>
-          ))}
-        </div>
-        
-        <div className="product-actions">
-          <Button 
-            label="Xem chi tiết" 
-            icon="pi pi-eye"
-            className="p-button-primary product-detail-btn"
-            size="small"
-          />
+          <ul>
+            {product.features.slice(0, 3).map((feature, index) => (
+              <li key={index}>
+                <i className="pi pi-check"></i>
+                {feature}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </div>
+      
+      <div className="product-actions">
+        <Button 
+          label="Xem chi tiết"
+          icon="pi pi-eye"
+          className="detail-btn"
+          onClick={handleViewDetail}
+          outlined
+        />
+        <Button 
+          label="Đặt nước ngay"
+          icon="pi pi-phone"
+          className="order-btn"
+          onClick={handleQuickOrder}
+        />
+      </div>
+    </Card>
   )
 }
 
