@@ -2,34 +2,59 @@
 export const homeData = {
   // Hero section data
   hero: {
-    title: 'NƯỚC UỐNG TOPLIFE',
-    subtitle: 'THƯƠNG HIỆU NƯỚC UỐNG TINH KHIẾT ĐÓNG CHAI HÀNG ĐẦU TẠI ĐÀ NẴNG',
-    description: 'Công ty TNHH Nam Trung Hải được thành lập từ năm 2008, có 16 năm kinh nghiệm phục vụ nhu cầu cung cấp nước uống tinh khiết cho thị trường miền Trung, Đà Nẵng.',
-    backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897',
-    ctaText: 'ĐĂNG KÝ TƯ VẤN'
+    slides: [
+      {
+        id: 1,
+        title: 'NƯỚC UỐNG TOPLIFE',
+        subtitle: 'THƯƠNG HIỆU NƯỚC UỐNG TINH KHIẾT ĐÓNG CHAI HÀNG ĐẦU TẠI ĐÀ NẴNG',
+        description: 'Công ty TNHH Nam Trung Hải được thành lập từ năm 2008, có 16 năm kinh nghiệm phục vụ nhu cầu cung cấp nước uống tinh khiết cho thị trường miền Trung, Đà Nẵng.',
+        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897',
+        ctaText: 'ĐĂNG KÝ TƯ VẤN'
+      },
+      {
+        id: 2,
+        title: 'CHẤT LƯỢNG HÀNG ĐẦU',
+        subtitle: 'CÔNG NGHỆ LỌC NƯỚC HIỆN ĐẠI - ĐẢM BẢO AN TOÀN TUYỆT ĐỐI',
+        description: 'Sử dụng công nghệ lọc nước hiện đại nhất, quy trình sản xuất khép kín đảm bảo chất lượng nước uống tinh khiết đến từng giọt.',
+        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_2.jpg?1717065557897',
+        ctaText: 'TÌM HIỂU THÊM'
+      },
+      {
+        id: 3,
+        title: 'PHỤC VỤ TẬN TÂM',
+        subtitle: 'GIAO HÀNG NHANH CHÓNG - DỊCH VỤ CHUYÊN NGHIỆP',
+        description: 'Mạng lưới phân phối rộng khắp Đà Nẵng với đội ngũ giao hàng chuyên nghiệp, đảm bảo giao hàng đúng hẹn.',
+        backgroundImage: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_3.jpg?1717065557897',
+        ctaText: 'LIÊN HỆ NGAY'
+      }
+    ]
   },
 
-  // Statistics data
+  // Statistics data  
   statistics: [
     { 
       number: '29,283', 
       label: 'NGƯỜI TIÊU DÙNG', 
-      icon: 'pi-users' 
+      icon: '👥',
+      color: '#ffcc02'
     },
     { 
       number: '1,483', 
       label: 'ĐỐI TÁC', 
-      icon: 'pi-handshake' 
+      icon: '🤝',
+      color: '#ffcc02'
     },
     { 
       number: '15', 
       label: 'KHU VỰC', 
-      icon: 'pi-map-marker' 
+      icon: '📍',
+      color: '#ffcc02'
     },
     { 
       number: '16', 
       label: 'NĂM KINH NGHIỆM', 
-      icon: 'pi-calendar' 
+      icon: '📅',
+      color: '#ffcc02'
     }
   ],
 
@@ -103,18 +128,27 @@ export const homeData = {
     items: [
       {
         id: 1,
-        name: 'NƯỚC UỐNG TINH KHIẾT TOPLIFE',
-        image: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/learn.svg?1717065557897',
-        buttons: [
-          {
-            text: 'Nước uống tinh khiết Toplife',
-            type: 'outlined'
-          },
-          {
-            text: 'Chi tiết',
-            type: 'primary'
-          }
-        ]
+        name: 'Nước Uống Tinh Khiết TopLife 1L',
+        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
+        description: 'Chai 1 lít tiện lợi cho gia đình nhỏ',
+        features: ['Dung tích 1L', 'Phù hợp cá nhân', 'Tiện mang theo', 'Chất lượng cao'],
+        category: 'Chai nhỏ'
+      },
+      {
+        id: 2,
+        name: 'Nước Uống Tinh Khiết TopLife 5L',
+        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
+        description: 'Chai 5 lít phù hợp cho gia đình trung bình',
+        features: ['Dung tích 5L', 'Tiết kiệm', 'Phù hợp gia đình', 'Đảm bảo chất lượng'],
+        category: 'Chai vừa'
+      },
+      {
+        id: 3,
+        name: 'Nước Uống Tinh Khiết TopLife 15L',
+        image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
+        description: 'Chai 15 lít cho gia đình đông người và văn phòng',
+        features: ['Dung tích 15L', 'Tiết kiệm tối đa', 'Phù hợp văn phòng', 'Giao hàng tận nơi'],
+        category: 'Chai lớn'
       }
     ]
   },

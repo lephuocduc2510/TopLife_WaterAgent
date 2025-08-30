@@ -15,20 +15,6 @@
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
-.product-discount-badge {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: #e74c3c;
-  color: white;
-  padding: 0.5rem 0.8rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  z-index: 2;
-  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
-}
-
 .product-image-container {
   position: relative;
   height: 250px;
@@ -88,7 +74,7 @@
 }
 
 .product-features {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .product-feature {
@@ -108,54 +94,16 @@
   color: #555;
 }
 
-.product-pricing {
-  margin-bottom: 1.2rem;
-}
-
-.product-price {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.current-price {
-  font-size: 1.4rem;
-  font-weight: 900;
-  color: #e74c3c;
-}
-
-.original-price {
-  font-size: 1rem;
-  color: #999;
-  text-decoration: line-through;
-  font-weight: 500;
-}
-
 .product-actions {
-  display: flex;
-  gap: 0.8rem;
   margin-top: auto;
 }
 
-.product-cart-btn,
 .product-detail-btn {
-  flex: 1;
+  width: 100%;
   border-radius: 8px !important;
   font-weight: 600 !important;
-  font-size: 0.85rem !important;
-}
-
-.product-cart-btn {
-  border-color: #1976d2 !important;
-  color: #1976d2 !important;
-}
-
-.product-cart-btn:hover {
-  background: #1976d2 !important;
-  color: white !important;
-}
-
-.product-detail-btn {
+  font-size: 0.9rem !important;
+  padding: 0.8rem 1.5rem !important;
   background: #1976d2 !important;
   border-color: #1976d2 !important;
 }
@@ -189,13 +137,9 @@
     font-size: 0.85rem;
   }
   
-  .product-actions {
-    flex-direction: column;
-    gap: 0.6rem;
-  }
-  
-  .current-price {
-    font-size: 1.2rem;
+  .product-detail-btn {
+    font-size: 0.85rem !important;
+    padding: 0.7rem 1.2rem !important;
   }
 }
 
@@ -212,11 +156,8 @@
     font-size: 0.8rem;
   }
   
-  .current-price {
-    font-size: 1.1rem;
-  }
-  
-  .original-price {
-    font-size: 0.9rem;
+  .product-detail-btn {
+    font-size: 0.8rem !important;
+    padding: 0.6rem 1rem !important;
   }
 }
