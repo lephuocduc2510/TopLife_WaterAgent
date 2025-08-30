@@ -5,7 +5,32 @@ import './Footer.css'
 const Footer = () => {
   return (
     <div className="footer-container">
-     
+      {/* Newsletter Section */}
+      <div className="footer-newsletter-section">
+        <div className="footer-newsletter-container">
+          <div className="footer-newsletter-content">
+            <h2 className="footer-newsletter-title">
+              <i className="pi pi-envelope footer-newsletter-icon"></i>
+              ĐĂNG KÝ TƯ VẤN
+            </h2>
+            <p className="footer-newsletter-subtitle">THEO DÕI BẢN TIN HÀNG TUẦN</p>
+            
+            <div className="footer-newsletter-form">
+              <div className="footer-email-input-container">
+                <input 
+                  type="email" 
+                  placeholder="Nhập Email của bạn"
+                  className="footer-email-input"
+                />
+                <Button 
+                  label="ĐĂNG KÝ"
+                  className="footer-newsletter-submit-btn"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Main footer content */}
       <div className="footer-main-content">
