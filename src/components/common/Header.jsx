@@ -1,95 +1,86 @@
 import { Menubar } from 'primereact/menubar'
-import { InputText } from 'primereact/inputtext'
 import { Button } from 'primereact/button'
+import './Header.css'
 
 const Header = () => {
   const menuItems = [
     {
-      label: 'Trang chủ',
-      icon: 'pi pi-fw pi-home',
+      label: 'TRANG CHỦ',
       url: '/'
     },
     {
-      label: 'Sản phẩm',
-      icon: 'pi pi-fw pi-droplet',
-      items: [
-        {
-          label: 'Nước uống tinh khiết',
-          icon: 'pi pi-fw pi-droplet'
-        },
-        {
-          label: 'Nước đóng chai',
-          icon: 'pi pi-fw pi-shopping-bag'
-        }
-      ]
-    },
-    {
-      label: 'Quản lý chất lượng',
-      icon: 'pi pi-fw pi-chart-line',
-      items: [
-        {
-          label: 'Phân tích chất lượng',
-          icon: 'pi pi-fw pi-chart-bar'
-        },
-        {
-          label: 'Giám sát sử dụng',
-          icon: 'pi pi-fw pi-eye'
-        },
-        {
-          label: 'Báo cáo',
-          icon: 'pi pi-fw pi-file-pdf'
-        }
-      ]
-    },
-    {
-      label: 'Giới thiệu',
-      icon: 'pi pi-fw pi-info-circle',
+      label: 'GIỚI THIỆU',
       url: '/about'
     },
     {
-      label: 'Liên hệ',
-      icon: 'pi pi-fw pi-phone',
+      label: 'SẢN PHẨM',
+      url: '/products'
+    },
+    {
+      label: 'TIN TỨC',
+      url: '/news'
+    },
+    {
+      label: 'LIÊN HỆ',
       url: '/contact'
     }
   ]
 
   const start = (
     <div className="flex align-items-center">
-      <i className="pi pi-droplet text-blue-600 text-3xl mr-3"></i>
-      <div className="flex flex-column">
-        <span className="font-bold text-xl text-blue-900">TopLife</span>
-        <span className="text-xs text-blue-600">Water Agent</span>
-      </div>
+      <img 
+        src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/logo.png?1717065557897" 
+        alt="TopLife Logo" 
+        className="h-2rem"
+      />
     </div>
   )
   
   const end = (
     <div className="flex align-items-center gap-3">
-      <div className="hidden lg:flex align-items-center gap-2 text-sm">
-        <i className="pi pi-phone text-blue-600"></i>
-        <span className="text-gray-700">0926 96 79 79</span>
-      </div>
-      <InputText 
-        placeholder="Tìm kiếm..." 
-        type="text" 
-        className="w-8rem sm:w-auto hidden md:block" 
-      />
       <Button 
-        icon="pi pi-user" 
-        className="p-button-rounded p-button-outlined p-button-sm" 
-        tooltip="Đăng nhập"
+        icon="pi pi-search" 
+        className="p-button-rounded p-button-text p-button-sm header-search-btn" 
+        tooltip="Tìm kiếm"
       />
     </div>
   )
 
   return (
-    <div className="surface-0 border-bottom-1 surface-border bg-white shadow-2">
-      <Menubar 
-        model={menuItems} 
-        start={start} 
-        end={end} 
-        className="border-none bg-white px-4 py-3"
-      />
+    <div className="header-wrapper">
+      {/* Top Bar */}
+      <div className="top-bar">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex justify-content-between align-items-center py-2">
+            <div className="flex align-items-center gap-2 text-sm text-white">
+              <i className="pi pi-map-marker text-green-400"></i>
+              <span>Thôn Đông Son, Xã Hòa Ninh, Huyện Hòa Vang, Thành Phố Đà Nẵng</span>
+            </div>
+            <div className="flex align-items-center gap-4 text-sm text-white">
+              <div className="flex align-items-center gap-2">
+                <i className="pi pi-envelope text-green-400"></i>
+                <span>kdtoplife@gmail.com</span>
+              </div>
+              <div className="flex align-items-center gap-2">
+                <i className="pi pi-phone text-green-400"></i>
+                <span>0926 96 79 79</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <div className="main-header">
+        <div className="max-w-6xl mx-auto px-4">
+          <Menubar 
+            model={menuItems} 
+            start={start} 
+            end={end} 
+            className="header-menubar"
+          />
+        </div>
+      </div>
     </div>
   )
 }

@@ -1,0 +1,117 @@
+/* Header Top Bar */
+.top-bar {
+  background: linear-gradient(135deg, #0d47a1 0%, #1976d2 100%);
+  font-size: 0.875rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.top-bar .pi {
+  font-size: 0.875rem;
+}
+
+/* Main Header */
+.main-header {
+  background: white;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-menubar {
+  border: none !important;
+  background: transparent !important;
+  padding: 0.75rem 0 !important;
+}
+
+.header-menubar .p-menubar-start {
+  margin-right: 2rem;
+}
+
+.header-menubar .p-menubar-root-list {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  gap: 2rem;
+}
+
+.header-menubar .p-menuitem {
+  margin: 0 !important;
+}
+
+.header-menubar .p-menuitem-link {
+  padding: 0.75rem 0 !important;
+  background: transparent !important;
+  border: none !important;
+  color: #333 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  transition: all 0.3s ease !important;
+  text-decoration: none !important;
+  position: relative;
+}
+
+.header-menubar .p-menuitem-link:hover {
+  background: transparent !important;
+  color: #1976d2 !important;
+}
+
+.header-menubar .p-menuitem-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #1976d2;
+  transition: width 0.3s ease;
+}
+
+.header-menubar .p-menuitem-link:hover::after {
+  width: 100%;
+}
+
+.header-menubar .p-menuitem-text {
+  color: inherit !important;
+}
+
+.header-search-btn {
+  color: #666 !important;
+  border: 1px solid #e0e0e0 !important;
+  background: transparent !important;
+}
+
+.header-search-btn:hover {
+  color: #1976d2 !important;
+  border-color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.05) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-bar {
+    display: none;
+  }
+  
+  .header-menubar .p-menubar-start {
+    margin-right: 1rem;
+  }
+  
+  .header-menubar .p-menubar-root-list {
+    gap: 1rem;
+  }
+  
+  .header-menubar .p-menuitem-link {
+    font-size: 0.875rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-menubar .p-menubar-root-list {
+    display: none;
+  }
+  
+  .header-menubar .p-menubar-button {
+    display: block !important;
+  }
+}
