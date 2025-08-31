@@ -70,6 +70,13 @@
   color: #1976d2;
 }
 
+.product-price {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #e91e63;
+  margin-bottom: 12px;
+}
+
 .product-description {
   color: #666;
   font-size: 0.95rem;

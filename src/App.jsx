@@ -12,6 +12,9 @@ import Footer from './components/common/Footer'
 // Pages
 import Home from './pages/Home/Home'
 import About from './pages/About'
+import Products from './pages/Products/Products'
+import News from './pages/News/News'
+import NewsDetail from './pages/NewsDetail/NewsDetail'
 
 
 import './App.css'
@@ -28,6 +31,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/tin-tuc" element={<News />} />
+            <Route path="/tin-tuc/:slug" element={<NewsDetail />} />
             <Route path="/demo" element={
               <div className="flex flex-column align-items-center p-4">
                 <Card title="Welcome to TopLife WaterAgent" className="w-full md:w-30rem mt-4">

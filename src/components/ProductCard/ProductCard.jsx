@@ -35,6 +35,11 @@ const ProductCard = ({ product }) => {
         <h3 className="product-name" onClick={handleViewDetail}>
           {product.name}
         </h3>
+        {product.price && (
+          <div className="product-price">
+            {product.price.toLocaleString('vi-VN')}đ
+          </div>
+        )}
         <p className="product-description">
           {product.description}
         </p>

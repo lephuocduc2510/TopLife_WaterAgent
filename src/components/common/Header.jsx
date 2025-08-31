@@ -18,7 +18,7 @@ const Header = () => {
     },
     {
       label: 'TIN TỨC',
-      url: '/news'
+      url: '/tin-tuc'
     },
     {
       label: 'LIÊN HỆ',
