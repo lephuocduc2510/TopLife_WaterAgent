@@ -9,7 +9,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate()
 
   const handleViewDetail = () => {
-    navigate(`/product/${product.id}`)
+    navigate(`/san-pham/${product.slug}`)
   }
 
   const handleQuickOrder = () => {

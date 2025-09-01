@@ -129,6 +129,7 @@ export const homeData = {
       {
         id: 1,
         name: 'Nước Uống Tinh Khiết TopLife 1L',
+        slug: 'nuoc-uong-tinh-khiet-toplife-1l',
         image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
         description: 'Chai 1 lít tiện lợi cho gia đình nhỏ',
         features: ['Dung tích 1L', 'Phù hợp cá nhân', 'Tiện mang theo', 'Chất lượng cao'],
@@ -137,6 +138,7 @@ export const homeData = {
       {
         id: 2,
         name: 'Nước Uống Tinh Khiết TopLife 5L',
+        slug: 'nuoc-uong-tinh-khiet-toplife-5l',
         image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
         description: 'Chai 5 lít phù hợp cho gia đình trung bình',
         features: ['Dung tích 5L', 'Tiết kiệm', 'Phù hợp gia đình', 'Đảm bảo chất lượng'],
@@ -145,6 +147,7 @@ export const homeData = {
       {
         id: 3,
         name: 'Nước Uống Tinh Khiết TopLife 15L',
+        slug: 'nuoc-uong-tinh-khiet-toplife-15l',
         image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
         description: 'Chai 15 lít cho gia đình đông người và văn phòng',
         features: ['Dung tích 15L', 'Tiết kiệm tối đa', 'Phù hợp văn phòng', 'Giao hàng tận nơi'],

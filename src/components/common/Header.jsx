@@ -10,11 +10,11 @@ const Header = () => {
     },
     {
       label: 'GIỚI THIỆU',
-      url: '/about'
+      url: '/gioi-thieu'
     },
     {
       label: 'SẢN PHẨM',
-      url: '/products'
+      url: '/san-pham'
     },
     {
       label: 'TIN TỨC',
@@ -22,7 +22,7 @@ const Header = () => {
     },
     {
       label: 'LIÊN HỆ',
-      url: '/contact'
+      url: '/lien-he'
     }
   ]
 

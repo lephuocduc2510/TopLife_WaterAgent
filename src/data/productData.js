@@ -3,6 +3,7 @@ export const productData = [
   {
     id: 1,
     name: 'Nước Uống Tinh Khiết TopLife 1L',
+    slug: 'nuoc-uong-tinh-khiet-toplife-1l',
     image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
     description: 'Chai 1 lít tiện lợi cho gia đình nhỏ và sử dụng cá nhân hàng ngày. Sản phẩm được sản xuất từ nguồn nước thiên nhiên, qua quy trình lọc hiện đại, đảm bảo an toàn và chất lượng cao cho sức khỏe người sử dụng.',
     features: [
@@ -32,6 +33,7 @@ export const productData = [
   {
     id: 2,
     name: 'Nước Uống Tinh Khiết TopLife 5L',
+    slug: 'nuoc-uong-tinh-khiet-toplife-5l',
     image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
     description: 'Chai 5 lít phù hợp cho gia đình trung bình, tiết kiệm và tiện lợi. Với thiết kế có tay cầm ergonomic, dễ dàng cầm nắm và rót nước.',
     features: [
@@ -61,6 +63,7 @@ export const productData = [
   {
     id: 3,
     name: 'Nước Uống Tinh Khiết TopLife 15L',
+    slug: 'nuoc-uong-tinh-khiet-toplife-15l',
     image: 'https://bizweb.dktcdn.net/100/515/900/products/2.png?v=1715054075793',
     description: 'Chai 15 lít cho gia đình đông người và văn phòng, tiết kiệm tối đa. Có van xả tiện lợi, phù hợp cho cây nước uống.',
     features: [
@@ -110,31 +113,24 @@ export const productSpecs = {
 export const testimonials = [
   {
     id: 1,
-    name: 'Nguyễn Thị Lan',
-    position: 'Quản lý văn phòng',
-    avatar: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-    content: 'Chúng tôi đã sử dụng nước TopLife cho văn phòng hơn 2 năm. Chất lượng nước rất tốt, nhân viên đều hài lòng. Dịch vụ giao hàng đúng giờ, đóng gói cẩn thận.'
+    name: 'Lê Thị Hoa',
+    position: 'Nội trợ',
+    avatar: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/index_testimonials_image_1.png?1717065557897',
+    content: 'Gia đình chúng tôi đã sử dụng Nước uống Toplife trong hơn 10 năm. Chúng tôi rất hài lòng với chất lượng và dịch vụ của công ty qua thời gian dài gắn bó. Chúng tôi sẽ tiếp tục ủng hộ những bước tiến mới của công ty trong tương lai.'
   },
   {
     id: 2,
-    name: 'Trần Văn Minh',
-    position: 'Chủ gia đình',
-    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-    content: 'Gia đình tôi đã chuyển sang dùng nước TopLife từ năm ngoái. Vị nước ngọt, trong, không có mùi lạ. Giá cả hợp lý, phù hợp với mọi gia đình.'
+    name: 'Huỳnh Thị Yến',
+    position: 'Đại lý đối tác',
+    avatar: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/index_testimonials_image_2.png?1717065557897',
+    content: 'Trong suốt thời gian làm đại lý hợp tác với Nước uống Toplife, tôi nhận được rất nhiều lợi ích và ưu đãi từ cả nhà cung cấp và khách hàng. Sản phẩm nước uống của họ chất lượng, đảm bảo, uy tín, nên rất yên tâm để buôn bán cho người tiêu dùng'
   },
   {
     id: 3,
-    name: 'Phạm Thị Hương',
-    position: 'Giáo viên mầm non',
-    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80',
-    content: 'Trường chúng tôi tin tưởng sử dụng nước TopLife cho các bé. An toàn, chất lượng, được kiểm định nghiêm ngặt. Các bé uống rất thích.'
-  },
-  {
-    id: 4,
-    name: 'Lê Văn Đức',
-    position: 'Chủ quán cà phê',
-    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
-    content: 'Quán cà phê của tôi sử dụng nước TopLife để pha chế. Khách hàng đều khen cà phê ngon, vị nước không ảnh hưởng đến hương vị món uống.'
+    name: 'Nguyễn Minh Tuấn',
+    position: 'Học sinh',
+    avatar: 'https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/index_testimonials_image_2.png?1717065557897',
+    content: 'Mình đã sử dụng nước TopLife được 2 năm rồi. Nước rất trong, ngọt và an toàn cho sức khỏe. Gia đình mình rất hài lòng với chất lượng sản phẩm. Sẽ tiếp tục ủng hộ TopLife!'
   }
 ]
 

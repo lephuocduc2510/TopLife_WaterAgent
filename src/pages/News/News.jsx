@@ -5,18 +5,42 @@ import { Card } from 'primereact/card'
 import { Badge } from 'primereact/badge'
 import { Dropdown } from 'primereact/dropdown'
 import { Paginator } from 'primereact/paginator'
-import newsData from '../../data/newsData'
+import { getAllArticles } from '../../data/newsDetailData'
+import { testimonials } from '../../data/productData'
 import './News.css'
 
 const News = () => {
   const navigate = useNavigate()
   const [searchParams, setSearchParams] = useSearchParams()
-  const [articles, setArticles] = useState(newsData.articles)
-  const [filteredArticles, setFilteredArticles] = useState(newsData.articles)
+  
+  // Tạo dữ liệu từ newsDetailData
+  const allArticles = getAllArticles().map(article => ({
+    ...article,
+    publishedAt: article.publishDate,
+    views: Math.floor(Math.random() * 2000) + 500, // Random views for demo
+    readTime: Math.floor(Math.random() * 10) + 3, // Random read time 3-12 mins
+    excerpt: article.excerpt
+  }))
+  
+  const categories = [
+    { id: 1, name: 'Tất cả', slug: 'all', count: allArticles.length },
+    { id: 2, name: 'Tin tức', slug: 'tin-tuc', count: allArticles.filter(a => a.category === 'Tin tức').length },
+    { id: 3, name: 'Sức khỏe', slug: 'suc-khoe', count: 0 },
+    { id: 4, name: 'Sản phẩm', slug: 'san-pham', count: 0 }
+  ]
+  
+  const popularTags = ['Tình yêu', 'Quà tặng', 'Giáng sinh', '20/10', 'Hoa hồng', 'Nước hoa']
+  
+  const [articles, setArticles] = useState(allArticles)
+  const [filteredArticles, setFilteredArticles] = useState(allArticles)
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all')
   const [sortBy, setSortBy] = useState(searchParams.get('sortby') || 'newest')
   const [currentPage, setCurrentPage] = useState(parseInt(searchParams.get('page')) || 1)
   const [itemsPerPage] = useState(6)
+  
+  // Testimonials state
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+  const [isTransitioning, setIsTransitioning] = useState(false)
 
   const sortOptions = [
     { label: 'Mới nhất', value: 'newest' },
@@ -27,12 +51,12 @@ const News = () => {
   ]
 
   useEffect(() => {
-    let filtered = [...newsData.articles]
+    let filtered = [...allArticles]
 
     // Filter by category
     if (selectedCategory && selectedCategory !== 'all') {
-      const categoryName = newsData.categories.find(cat => cat.slug === selectedCategory)?.name
-      if (categoryName) {
+      const categoryName = categories.find(cat => cat.slug === selectedCategory)?.name
+      if (categoryName && categoryName !== 'Tất cả') {
         filtered = filtered.filter(article => article.category === categoryName)
       }
     }
@@ -93,6 +117,18 @@ const News = () => {
   }
 
   const formatDate = (dateString) => {
+    // Nếu dateString đã ở format "dd/mm/yyyy", chuyển đổi thành Date object
+    if (dateString.includes('/')) {
+      const [day, month, year] = dateString.split('/')
+      const date = new Date(year, month - 1, day)
+      return date.toLocaleDateString('vi-VN', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })
+    }
+    
+    // Nếu là ISO string
     const date = new Date(dateString)
     return date.toLocaleDateString('vi-VN', {
       year: 'numeric',
@@ -100,6 +136,21 @@ const News = () => {
       day: 'numeric'
     })
   }
+
+  // Testimonials handlers
+  const handleTestimonialChange = (index) => {
+    if (index === currentTestimonial) return
+    
+    setIsTransitioning(true)
+    setTimeout(() => {
+      setCurrentTestimonial(index)
+      setIsTransitioning(false)
+    }, 300)
+  }
+
+  // Debug testimonials
+  console.log('Testimonials:', testimonials)
+  console.log('Current testimonial index:', currentTestimonial)
 
   // Pagination
   const startIndex = (currentPage - 1) * itemsPerPage
@@ -141,7 +192,7 @@ const News = () => {
               <div className="sidebar-section">
                 <h3>Danh mục</h3>
                 <div className="category-list">
-                  {newsData.categories.map((category) => (
+                  {categories.map((category) => (
                     <button
                       key={category.id}
                       className={`category-item ${selectedCategory === category.slug ? 'active' : ''}`}
@@ -157,7 +208,7 @@ const News = () => {
               <div className="sidebar-section">
                 <h3>Tags phổ biến</h3>
                 <div className="tags-list">
-                  {newsData.popularTags.map((tag, index) => (
+                  {popularTags.map((tag, index) => (
                     <Badge key={index} value={tag} className="tag-badge" />
                   ))}
                 </div>
@@ -166,7 +217,7 @@ const News = () => {
               <div className="sidebar-section">
                 <h3>Tin nổi bật</h3>
                 <div className="featured-articles">
-                  {newsData.articles
+                  {allArticles
                     .filter(article => article.views > 1000)
                     .slice(0, 3)
                     .map((article) => (
@@ -292,19 +343,24 @@ const News = () => {
         <div className="container">
           <div className="testimonials-content">
             <h2>Ý kiến Khách hàng</h2>
-            <div className="testimonial-card">
+            <div className={`testimonial-card ${isTransitioning ? 'transitioning' : ''}`}>
               <p>
-                "Gia đình chúng tôi đã sử dụng Nước uống Toplife trong hơn 10 năm. 
-                Chúng tôi rất hài lòng với chất lượng và dịch vụ của công ty qua thời gian dài 
-                gần bó. Chúng tôi sẽ tiếp tục ủng hộ những bước tiến mới của công ty trong tương lai."
+                "{testimonials[currentTestimonial]?.content}"
               </p>
               <div className="testimonial-author">
-                <strong>Lê Thị Hoa</strong> - Nội trợ
+                <strong>{testimonials[currentTestimonial]?.name}</strong> - {testimonials[currentTestimonial]?.position}
               </div>
               <div className="testimonial-avatars">
-                <img src="/api/placeholder/50/50" alt="Avatar 1" className="avatar" />
-                <img src="/api/placeholder/50/50" alt="Avatar 2" className="avatar" />
-                <img src="/api/placeholder/50/50" alt="Avatar 3" className="avatar" />
+                {testimonials.slice(0, 3).map((testimonial, index) => (
+                  <img 
+                    key={testimonial.id}
+                    src={testimonial.avatar} 
+                    alt={testimonial.name}
+                    className={`avatar ${index === currentTestimonial ? 'active' : ''}`}
+                    onClick={() => handleTestimonialChange(index)}
+                    title={testimonial.name}
+                  />
+                ))}
               </div>
             </div>
           </div>

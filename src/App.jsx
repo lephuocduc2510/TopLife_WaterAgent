@@ -13,6 +13,7 @@ import Footer from './components/common/Footer'
 import Home from './pages/Home/Home'
 import About from './pages/About'
 import Products from './pages/Products/Products'
+import ProductDetail from './pages/ProductDetail/ProductDetail'
 import News from './pages/News/News'
 import NewsDetail from './pages/NewsDetail/NewsDetail'
 
@@ -30,8 +31,9 @@ function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
+            <Route path="/gioi-thieu" element={<About />} />
+            <Route path="/san-pham" element={<Products />} />
+            <Route path="/san-pham/:slug" element={<ProductDetail />} />
             <Route path="/tin-tuc" element={<News />} />
             <Route path="/tin-tuc/:slug" element={<NewsDetail />} />
             <Route path="/demo" element={
