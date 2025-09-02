@@ -18,6 +18,7 @@ import ProductDetail from './pages/ProductDetail/ProductDetail'
 import News from './pages/News/News'
 import NewsDetail from './pages/NewsDetail/NewsDetail'
 import Contact from './pages/Contact/Contact'
+import NotFound from './pages/NotFound'
 
 
 import './App.css'
@@ -57,6 +58,8 @@ function App() {
                 </Card>
               </div>
             } />
+            {/* Catch all unmatched routes */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
 

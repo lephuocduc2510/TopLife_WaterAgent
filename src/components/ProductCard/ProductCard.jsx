@@ -3,6 +3,7 @@ import { Card } from 'primereact/card'
 import { Button } from 'primereact/button'
 import { Badge } from 'primereact/badge'
 import { useNavigate } from 'react-router-dom'
+import { createWhatsAppUrl } from '../../utils/config'
 import './ProductCard.css'
 
 const ProductCard = ({ product }) => {
@@ -14,8 +15,7 @@ const ProductCard = ({ product }) => {
 
   const handleQuickOrder = () => {
     const message = `Xin chào! Tôi muốn đặt ${product.name}. Vui lòng liên hệ lại để tư vấn.`
-    const phoneNumber = '0926967979'
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    const whatsappUrl = createWhatsAppUrl(message)
     window.open(whatsappUrl, '_blank')
   }
 

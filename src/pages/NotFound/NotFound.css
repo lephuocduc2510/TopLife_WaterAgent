@@ -1,0 +1,327 @@
+/* Not Found Page Styles */
+.not-found-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  opacity: 0.3;
+}
+
+.not-found-container {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.not-found-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* 404 Visual */
+.not-found-visual {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.error-number {
+  font-size: 8rem;
+  font-weight: 900;
+  color: #1976d2;
+  text-shadow: 0 4px 20px rgba(25, 118, 210, 0.3);
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+}
+
+/* Water Drop Animation */
+.water-drop-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.drop {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #42a5f5, #1976d2);
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  animation: dropFloat 3s ease-in-out infinite;
+  opacity: 0.7;
+}
+
+.drop-1 {
+  top: -60px;
+  left: -40px;
+  animation-delay: 0s;
+}
+
+.drop-2 {
+  top: -80px;
+  right: -30px;
+  animation-delay: 1s;
+}
+
+.drop-3 {
+  bottom: -40px;
+  left: -20px;
+  animation-delay: 2s;
+}
+
+@keyframes dropFloat {
+  0%, 100% {
+    transform: rotate(-45deg) translateY(0px);
+    opacity: 0.7;
+  }
+  50% {
+    transform: rotate(-45deg) translateY(-20px);
+    opacity: 1;
+  }
+}
+
+/* Card Styles */
+.not-found-card {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
+  padding: 3rem !important;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.not-found-text h1 {
+  color: #1976d2;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-description {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.suggestion-text {
+  font-size: 1.1rem;
+  color: #888;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Quick Links */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #495057;
+  font-weight: 500;
+}
+
+.link-item:hover {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.3);
+}
+
+.link-item i {
+  font-size: 1.2rem;
+}
+
+/* Action Buttons */
+.not-found-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.home-btn {
+  background: linear-gradient(135deg, #1976d2, #1565c0) !important;
+  border: none !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+.home-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(25, 118, 210, 0.4) !important;
+}
+
+.back-btn {
+  border: 2px solid #6c757d !important;
+  color: #6c757d !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+.back-btn:hover {
+  background: #6c757d !important;
+  color: white !important;
+  transform: translateY(-2px) !important;
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #7b1fa2, #6a1b9a) !important;
+  border: none !important;
+  padding: 0.8rem 2rem !important;
+  font-weight: 600 !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+.contact-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(123, 31, 162, 0.4) !important;
+}
+
+/* Company Info */
+.company-info {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.company-info h3 {
+  color: #1976d2;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.company-info p {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+.contact-info span {
+  background: rgba(25, 118, 210, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  color: #1976d2;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .not-found-page {
+    padding: 1rem;
+  }
+
+  .error-number {
+    font-size: 6rem;
+  }
+
+  .not-found-card {
+    padding: 2rem !important;
+  }
+
+  .not-found-text h1 {
+    font-size: 2rem;
+  }
+
+  .error-description {
+    font-size: 1rem;
+  }
+
+  .quick-links {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+
+  .not-found-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .home-btn,
+  .back-btn,
+  .contact-btn {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .error-number {
+    font-size: 4rem;
+  }
+
+  .not-found-card {
+    padding: 1.5rem !important;
+  }
+
+  .not-found-text h1 {
+    font-size: 1.75rem;
+  }
+
+  .drop {
+    width: 20px;
+    height: 20px;
+  }
+
+  .company-info {
+    padding: 1.5rem;
+  }
+}

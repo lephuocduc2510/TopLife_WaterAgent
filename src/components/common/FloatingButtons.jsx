@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Button } from 'primereact/button'
+import { createWhatsAppUrl } from '../../utils/config'
 import './FloatingButtons.css'
 
 const FloatingButtons = () => {
@@ -27,10 +28,9 @@ const FloatingButtons = () => {
   }
 
   const openMessenger = () => {
-    // Open Facebook Messenger or WhatsApp
-    const phoneNumber = '0926967979'
+    // Open WhatsApp with configured message
     const message = 'Xin chào! Tôi muốn tư vấn về sản phẩm nước uống TopLife.'
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    const whatsappUrl = createWhatsAppUrl(message)
     window.open(whatsappUrl, '_blank')
   }
 
