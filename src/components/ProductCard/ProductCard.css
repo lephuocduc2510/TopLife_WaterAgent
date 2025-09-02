@@ -54,6 +54,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 }
 
 .product-name {
@@ -82,11 +83,13 @@
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 15px;
-  flex: 1;
+  flex-grow: 1;
+  min-height: 2.4rem; /* Đảm bảo chiều cao tối thiểu cho 2 dòng */
 }
 
 .product-features {
   margin-bottom: 15px;
+  min-height: 84px; /* Đảm bảo đủ chỗ cho 3 features (28px x 3) */
 }
 
 .product-features ul {
@@ -163,6 +166,14 @@
     padding: 15px;
   }
   
+  .product-description {
+    min-height: 2.1rem; /* Điều chỉnh cho mobile */
+  }
+  
+  .product-features {
+    min-height: 78px; /* Điều chỉnh cho mobile */
+  }
+  
   .product-name {
     font-size: 1.2rem;
   }
@@ -191,6 +202,14 @@
   
   .product-info {
     padding: 12px;
+  }
+  
+  .product-description {
+    min-height: 1.8rem; /* Điều chỉnh cho mobile nhỏ */
+  }
+  
+  .product-features {
+    min-height: 72px; /* Điều chỉnh cho mobile nhỏ */
   }
   
   .product-name {

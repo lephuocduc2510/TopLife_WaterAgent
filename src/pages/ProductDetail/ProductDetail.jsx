@@ -205,75 +205,79 @@ Vui lòng liên hệ lại để tư vấn chi tiết. Cảm ơn!`
                   <strong>Hạn sử dụng:</strong> {product.shelfLife}
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              {/* Order Section */}
-              <div className="order-section">
-                <h3>ĐẶT NƯỚC NGAY</h3>
-                <div className="quantity-selector">
-                  <label>Số lượng:</label>
-                  <div className="quantity-controls">
-                    <Button 
-                      icon="pi pi-minus" 
-                      onClick={() => handleQuantityChange('decrease')}
-                      className="quantity-btn"
-                      disabled={quantity <= 1}
-                    />
-                    <span className="quantity-display">{quantity}</span>
-                    <Button 
-                      icon="pi pi-plus" 
-                      onClick={() => handleQuantityChange('increase')}
-                      className="quantity-btn"
-                    />
-                  </div>
-                </div>
-
-                <div className="customer-info">
-                  <div className="form-row">
-                    <InputText 
-                      placeholder="Họ và tên *" 
-                      value={customerName}
-                      onChange={(e) => setCustomerName(e.target.value)}
-                      className="customer-input"
-                    />
-                    <InputText 
-                      placeholder="Số điện thoại *" 
-                      value={customerPhone}
-                      onChange={(e) => setCustomerPhone(e.target.value)}
-                      className="customer-input"
-                    />
-                  </div>
-                  <InputText 
-                    placeholder="Email (không bắt buộc)" 
-                    value={customerEmail}
-                    onChange={(e) => setCustomerEmail(e.target.value)}
-                    className="customer-input"
-                  />
-                  <InputTextarea 
-                    placeholder="Ghi chú đơn hàng (không bắt buộc)" 
-                    value={customerMessage}
-                    onChange={(e) => setCustomerMessage(e.target.value)}
-                    className="customer-textarea"
-                    rows={3}
-                  />
-                </div>
-
+      {/* Order Section - Full Width */}
+      <div className="order-section-container">
+        <div className="container">
+          <div className="order-section">
+            <h3>ĐẶT NƯỚC NGAY</h3>
+            <div className="quantity-selector">
+              <label>Số lượng:</label>
+              <div className="quantity-controls">
                 <Button 
-                  label="ĐẶT HÀNG NGAY"
-                  icon="pi pi-shopping-cart"
-                  className="order-btn"
-                  onClick={handleOrderNow}
+                  icon="pi pi-minus" 
+                  onClick={() => handleQuantityChange('decrease')}
+                  className="quantity-btn"
+                  disabled={quantity <= 1}
                 />
+                <span className="quantity-display">{quantity}</span>
+                <Button 
+                  icon="pi pi-plus" 
+                  onClick={() => handleQuantityChange('increase')}
+                  className="quantity-btn"
+                />
+              </div>
+            </div>
 
-                <div className="contact-info">
-                  <div className="hotline">
-                    <i className="pi pi-phone"></i>
-                    <span>HOTLINE: <strong>0926 96 79 79</strong></span>
-                  </div>
-                  <div className="working-hours">
-                    <i className="pi pi-clock"></i>
-                    <span>Thứ 2 - Thứ 7: 7h - 11h30, 13h - 16h30</span>
-                  </div>
-                </div>
+            <div className="customer-info">
+              <div className="form-row">
+                <InputText 
+                  placeholder="Họ và tên *" 
+                  value={customerName}
+                  onChange={(e) => setCustomerName(e.target.value)}
+                  className="customer-input"
+                />
+                <InputText 
+                  placeholder="Số điện thoại *" 
+                  value={customerPhone}
+                  onChange={(e) => setCustomerPhone(e.target.value)}
+                  className="customer-input"
+                />
+              </div>
+              <InputText 
+                placeholder="Email (không bắt buộc)" 
+                value={customerEmail}
+                onChange={(e) => setCustomerEmail(e.target.value)}
+                className="customer-input"
+              />
+              <InputTextarea 
+                placeholder="Ghi chú đơn hàng (không bắt buộc)" 
+                value={customerMessage}
+                onChange={(e) => setCustomerMessage(e.target.value)}
+                className="customer-textarea"
+                rows={3}
+              />
+            </div>
+
+            <Button 
+              label="ĐẶT HÀNG NGAY"
+              icon="pi pi-shopping-cart"
+              className="order-btn"
+              onClick={handleOrderNow}
+            />
+
+            <div className="contact-info">
+              <div className="hotline">
+                <i className="pi pi-phone"></i>
+                <span>HOTLINE: <strong>0926 96 79 79</strong></span>
+              </div>
+              <div className="working-hours">
+                <i className="pi pi-clock"></i>
+                <span>Thứ 2 - Thứ 7: 7h - 11h30, 13h - 16h30</span>
               </div>
             </div>
           </div>

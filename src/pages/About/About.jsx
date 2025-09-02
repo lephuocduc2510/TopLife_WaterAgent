@@ -40,23 +40,32 @@ const About = () => {
     <div className="about-page">
       {/* Hero Section */}
       <section className="about-hero">
-        <div className="about-hero-background">
-          <img 
-            src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897" 
-            alt="TopLife Background"
-            className="about-hero-image"
-          />
-          <div className="about-hero-overlay"></div>
+        <div className="hero-background">
+          <div className="hero-overlay"></div>
         </div>
         <div className="about-hero-content">
           <div className="container">
-            <h1 className="about-hero-title">VỀ TOPLIFE</h1>
+            <h1 className="about-hero-title">GIỚI THIỆU & KIẾN THỨC</h1>
             <p className="about-hero-subtitle">
-              16 năm kinh nghiệm mang đến nguồn nước tinh khiết cho cộng đồng Đà Nẵng
+              Cập nhật những thông tin mới nhất về sức khỏe, sản phẩm và hoạt động của TopLife
             </p>
           </div>
         </div>
       </section>
+
+      {/* Breadcrumb */}
+      <div className="about-breadcrumb">
+        <div className="container">
+          <nav className="custom-breadcrumb">
+            <a href="/" className="breadcrumb-item">
+              <i className="pi pi-home"></i>
+              Trang chủ
+            </a>
+            <span className="breadcrumb-separator">/</span>
+            <span className="breadcrumb-current">Giới thiệu</span>
+          </nav>
+        </div>
+      </div>
 
       {/* Company Info Section */}
       <section className="about-company-info">

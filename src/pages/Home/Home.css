@@ -18,6 +18,8 @@
   height: 70vh;
   min-height: 500px;
   position: relative;
+  background: #000; /* Đảm bảo có background đen khi transition */
+  overflow: hidden;
 }
 
 .hero-carousel .p-carousel-content {
@@ -40,11 +42,23 @@
 .hero-carousel .p-carousel-items-content {
   height: 70vh;
   min-height: 500px;
+  transition: transform 0.5s ease-in-out !important; /* Làm mượt transition */
 }
 
 .hero-carousel .p-carousel-item {
   height: 70vh;
   min-height: 500px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Đảm bảo transition mượt khi chuyển slide */
+.hero-carousel .p-carousel-item.p-carousel-item-active {
+  opacity: 1;
+}
+
+.hero-carousel .p-carousel-item:not(.p-carousel-item-active) {
+  opacity: 0.95;
 }
 
 .hero-slide {
@@ -54,6 +68,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #000; /* Background mặc định để tránh trắng */
+  overflow: hidden;
+}
+
+/* Background image styling */
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1;
 }
 
 .hero-content {
@@ -269,6 +299,16 @@
   display: none !important;
 }
 
+.hero-carousel .p-carousel-prev *,
+.hero-carousel .p-carousel-next * {
+  display: none !important;
+}
+
+.hero-carousel .p-carousel-prev::before,
+.hero-carousel .p-carousel-next::before {
+  display: block !important;
+}
+
 .hero-carousel .p-carousel-prev {
   left: 40px !important;
 }
@@ -316,34 +356,13 @@
 }
 
 .hero-carousel .p-button-icon {
+  display: none !important;
   margin: 0 !important;
 }
 
 /* Carousel Indicators - Hidden */
 .hero-carousel .p-carousel-indicators {
   display: none !important;
-}
-
-/* Carousel Indicators */
-.hero-carousel .p-carousel-indicators {
-  bottom: 30px !important;
-}
-
-.hero-carousel .p-carousel-indicator {
-  background: rgba(255, 255, 255, 0.4) !important;
-  border: 2px solid rgba(255, 255, 255, 0.6) !important;
-  width: 12px !important;
-  height: 12px !important;
-  border-radius: 50% !important;
-  margin: 0 8px !important;
-  transition: all 0.3s ease !important;
-}
-
-.hero-carousel .p-carousel-indicator.p-highlight {
-  background: #ff9800 !important;
-  border-color: #ff9800 !important;
-  transform: scale(1.3) !important;
-  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5) !important;
 }
 
 /* Statistics Section - Blue background like TopLife */
@@ -920,6 +939,7 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  align-items: stretch; /* Đảm bảo tất cả card có cùng chiều cao */
 }
 
 /* Responsive for products grid */
