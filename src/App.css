@@ -27,6 +27,13 @@ body {
   width: 100%;
 }
 
+/* Add top margin for mobile fixed header */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 80px; /* Space for fixed header */
+  }
+}
+
 /* Remove default margin/padding from common elements */
 * {
   box-sizing: border-box;

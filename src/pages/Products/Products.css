@@ -7,37 +7,30 @@
 /* Hero Section */
 .products-hero {
   position: relative;
-  height: 350px;
-  background: linear-gradient(135deg, #ffcc02 0%, #ff9500 100%);
+  height: 300px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
 }
 
-.products-hero::before {
-  content: '';
+.hero-background {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url('https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/slider_1.jpg?1717065557897');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.3;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #8e8ffa 0%, #6d7aed 50%, #4f65e0 100%);
   z-index: 1;
 }
 
-.products-hero-overlay {
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(255, 204, 2, 0.8) 0%, rgba(255, 149, 0, 0.8) 100%);
-  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(79, 101, 224, 0.1);
 }
 
 .products-hero-content {
@@ -50,16 +43,17 @@
 }
 
 .products-hero-content h1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .products-hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 /* Breadcrumb */
@@ -244,6 +238,7 @@
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   margin: 3rem 0;
+  align-items: stretch; /* Đảm bảo tất cả card có cùng chiều cao */
 }
 
 /* Products CTA */
@@ -429,12 +424,16 @@
 }
 
 @media (max-width: 480px) {
+  .products-hero {
+    height: 200px;
+  }
+  
   .products-hero-content h1 {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
   }
 
   .products-hero-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .products-title {

@@ -1,8 +1,26 @@
+import React, { useState, useEffect } from 'react'
 import { Menubar } from 'primereact/menubar'
 import { Button } from 'primereact/button'
+import { Sidebar } from 'primereact/sidebar'
+import { useNavigate } from 'react-router-dom'
 import './Header.css'
 
 const Header = () => {
+  const [sidebarVisible, setSidebarVisible] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 900)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+
+    return () => window.removeEventListener('resize', checkScreenSize)
+  }, [])
+
   const menuItems = [
     {
       label: 'TRANG CHỦ',
@@ -26,23 +44,64 @@ const Header = () => {
     }
   ]
 
+  const handleMenuClick = (url) => {
+    navigate(url)
+    setSidebarVisible(false)
+  }
+
   const start = (
     <div className="flex align-items-center">
       <img 
         src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/logo.png?1717065557897" 
         alt="TopLife Logo" 
-        className="h-2rem"
+        className="header-logo"
+        onClick={() => navigate('/')}
       />
     </div>
   )
   
   const end = (
     <div className="flex align-items-center gap-3">
-      <Button 
-        icon="pi pi-search" 
-        className="p-button-rounded p-button-text p-button-sm header-search-btn" 
-        tooltip="Tìm kiếm"
-      />
+      {isMobile && (
+        <div className="mobile-menu-wrapper">
+          <button
+            className="custom-mobile-menu-btn"
+            onClick={() => setSidebarVisible(true)}
+            type="button"
+            style={{
+              display: 'flex',
+              width: '40px',
+              height: '40px',
+              border: '1px solid #1976d2',
+              background: 'transparent',
+              backgroundColor: 'transparent',
+              borderRadius: '50%',
+              cursor: 'pointer',
+              justifyContent: 'center',
+              alignItems: 'center',
+              padding: '0',
+              margin: '0',
+              outline: 'none',
+              position: 'relative',
+              zIndex: 10,
+              fontSize: '16px',
+              fontWeight: 'normal',
+              boxSizing: 'border-box'
+            }}
+          >
+            <svg 
+              width="18" 
+              height="12" 
+              viewBox="0 0 18 12" 
+              fill="none"
+              className="hamburger-svg"
+              style={{ pointerEvents: 'none' }}
+            >
+              <path d="M0 1h18M0 6h18M0 11h18" stroke="#1976d2" strokeWidth="2"/>
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   )
 
@@ -74,13 +133,52 @@ const Header = () => {
       <div className="main-header">
         <div className="max-w-6xl mx-auto px-4">
           <Menubar 
-            model={menuItems} 
+            model={isMobile ? [] : menuItems} 
             start={start} 
             end={end} 
             className="header-menubar"
           />
         </div>
       </div>
+
+      {/* Mobile Sidebar */}
+      <Sidebar 
+        visible={sidebarVisible} 
+        onHide={() => setSidebarVisible(false)}
+        className="mobile-sidebar"
+        position="right"
+      >
+        <div className="mobile-menu">
+          <div className="mobile-logo">
+            <img 
+              src="https://bizweb.dktcdn.net/100/515/900/themes/949247/assets/logo.png?1717065557897" 
+              alt="TopLife Logo" 
+              className="sidebar-logo"
+            />
+          </div>
+          <nav className="mobile-nav">
+            {menuItems.map((item, index) => (
+              <button
+                key={index}
+                className="mobile-nav-item"
+                onClick={() => handleMenuClick(item.url)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </nav>
+          <div className="mobile-contact">
+            <div className="contact-item">
+              <i className="pi pi-phone"></i>
+              <span>0926 96 79 79</span>
+            </div>
+            <div className="contact-item">
+              <i className="pi pi-envelope"></i>
+              <span>kdtoplife@gmail.com</span>
+            </div>
+          </div>
+        </div>
+      </Sidebar>
     </div>
   )
 }

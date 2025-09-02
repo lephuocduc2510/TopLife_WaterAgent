@@ -86,11 +86,13 @@ const Products = () => {
     <div className="products-page">
       {/* Hero Section */}
       <div className="products-hero">
-        <div className="products-hero-content">
-          <h1>SẢN PHẨM NƯỚC UỐNG TOPLIFE</h1>
-          <p>Khám phá dòng sản phẩm nước uống tinh khiết chất lượng cao với công nghệ lọc hiện đại</p>
+        <div className="hero-background">
+          <div className="hero-overlay"></div>
         </div>
-        <div className="products-hero-overlay"></div>
+        <div className="products-hero-content">
+          <h1>SẢN PHẨM & KIẾN THỨC</h1>
+          <p>Cập nhật những thông tin mới nhất về sức khỏe, sản phẩm và hoạt động của TopLife</p>
+        </div>
       </div>
 
       {/* Breadcrumb */}

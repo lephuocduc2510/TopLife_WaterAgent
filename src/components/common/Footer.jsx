@@ -1,12 +1,24 @@
 import { Button } from 'primereact/button'
 import { Divider } from 'primereact/divider'
+import { useNavigate } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
+  const navigate = useNavigate()
+
+  const handleContactClick = () => {
+    navigate('/lien-he')
+  }
+
+  const handleNewsletterSubmit = () => {
+    // Handle newsletter subscription
+    // For now, we'll show an alert or navigate to contact
+    navigate('/lien-he')
+  }
   return (
     <div className="footer-container">
       {/* Newsletter Section */}
-      <div className="footer-newsletter-section">
+      <div className="footer-newsletter-section" id="consultation-section">
         <div className="footer-newsletter-container">
           <div className="footer-newsletter-content">
             <h2 className="footer-newsletter-title">
@@ -25,6 +37,7 @@ const Footer = () => {
                 <Button 
                   label="ĐĂNG KÝ"
                   className="footer-newsletter-submit-btn"
+                  onClick={handleNewsletterSubmit}
                 />
               </div>
             </div>
@@ -59,6 +72,7 @@ const Footer = () => {
                 label="LIÊN HỆ" 
                 className="footer-contact-btn"
                 icon="pi pi-arrow-right"
+                onClick={handleContactClick}
               />
             </div>
 

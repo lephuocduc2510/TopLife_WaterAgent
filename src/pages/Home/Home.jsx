@@ -3,6 +3,7 @@ import { Button } from 'primereact/button'
 import { Card } from 'primereact/card'
 import { Carousel } from 'primereact/carousel'
 import { Divider } from 'primereact/divider'
+import { useNavigate } from 'react-router-dom'
 import { homeData } from '../../data'
 import ProductCard from '../../components/ProductCard'
 import './Home.css'
@@ -10,20 +11,48 @@ import './Home.css'
 const Home = () => {
   const { hero, statistics, features, learnSections, video, products, testimonials } = homeData
   const [isVideoPlaying, setIsVideoPlaying] = React.useState(false)
-  const [currentSlide, setCurrentSlide] = React.useState(0)
+  const navigate = useNavigate()
 
   const handleVideoPlay = () => {
     setIsVideoPlaying(true)
   }
 
-  // Auto slide change - slower
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % hero.slides.length)
-    }, 8000) // Change slide every 8 seconds (slower)
+  // Handle banner CTA clicks
+  const handleBannerClick = (ctaText) => {
+    console.log('Banner clicked:', ctaText)
+    switch(ctaText) {
+      case 'ĐĂNG KÝ TƯ VẤN':
+        // Scroll to footer consultation section
+        setTimeout(() => {
+          const consultationSection = document.getElementById('consultation-section')
+          if (consultationSection) {
+            consultationSection.scrollIntoView({ behavior: 'smooth' })
+          }
+        }, 100)
+        break
+      case 'TÌM HIỂU THÊM':
+        // Navigate to About page
+        navigate('/gioi-thieu')
+        break
+      case 'LIÊN HỆ NGAY':
+        // Navigate to Contact page
+        navigate('/lien-he')
+        break
+      default:
+        break
+    }
+  }
 
-    return () => clearInterval(interval)
-  }, [hero.slides.length])
+  // Handle learn section buttons
+  const handleLearnMore = (title) => {
+    if (title.includes('SẢN PHẨM')) {
+      navigate('/san-pham')
+    } else if (title.includes('KÊNH PHÂN PHỐI')) {
+      navigate('/lien-he')
+    } else if (title.includes('KINH NGHIỆM')) {
+      navigate('/gioi-thieu')
+    }
+  }
 
   const slideTemplate = (slide) => {
     return (
@@ -51,6 +80,7 @@ const Home = () => {
               icon="pi pi-arrow-right"
               className="p-button-warning p-button-lg slide-fade-in"
               size="large"
+              onClick={() => handleBannerClick(slide.ctaText)}
             />
           </div>
         </div>
@@ -91,8 +121,6 @@ const Home = () => {
           circular={true}
           autoplayInterval={8000}
           className="hero-carousel"
-          page={currentSlide}
-          onPageChange={(e) => setCurrentSlide(e.page)}
         />
       </section>
 
@@ -196,6 +224,7 @@ const Home = () => {
                     label={section.buttonText} 
                     className="p-button-outlined learn-button-compact"
                     icon="pi pi-arrow-right"
+                    onClick={() => handleLearnMore(section.title)}
                   />
                 </div>
               </div>

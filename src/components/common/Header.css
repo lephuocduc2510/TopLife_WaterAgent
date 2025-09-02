@@ -16,6 +16,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .header-menubar {
@@ -26,6 +27,16 @@
 
 .header-menubar .p-menubar-start {
   margin-right: 2rem;
+}
+
+.header-logo {
+  height: 2.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
 }
 
 .header-menubar .p-menubar-root-list {
@@ -75,21 +86,292 @@
   color: inherit !important;
 }
 
-.header-search-btn {
-  color: #666 !important;
-  border: 1px solid #e0e0e0 !important;
+/* Mobile Menu Wrapper */
+.mobile-menu-wrapper {
+  display: none;
+  position: relative;
+  z-index: 100;
+}
+
+.mobile-menu-wrapper button {
+  all: unset !important;
+  display: flex !important;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid #1976d2 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+.mobile-menu-wrapper button:hover {
+  background: rgba(25, 118, 210, 0.1) !important;
+  background-color: rgba(25, 118, 210, 0.1) !important;
+  border-color: #0d47a1 !important;
+}
+
+/* Custom Mobile Menu Button - Strong Override */
+button.custom-mobile-menu-btn,
+.header-wrapper button.custom-mobile-menu-btn,
+.main-header button.custom-mobile-menu-btn {
+  display: none;
+  width: 40px !important;
+  height: 40px !important;
+  border: 1px solid #1976d2 !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  outline: none !important;
+  position: relative !important;
+  z-index: 10 !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  font-family: inherit !important;
+  box-sizing: border-box !important;
+  min-width: auto !important;
+  min-height: auto !important;
+  color: #1976d2 !important;
+}
+
+button.custom-mobile-menu-btn:hover,
+.header-wrapper button.custom-mobile-menu-btn:hover,
+.main-header button.custom-mobile-menu-btn:hover {
+  background: rgba(25, 118, 210, 0.1) !important;
+  background-color: rgba(25, 118, 210, 0.1) !important;
+  border-color: #0d47a1 !important;
+  color: #0d47a1 !important;
+  transform: none !important;
+}
+
+button.custom-mobile-menu-btn:focus,
+.header-wrapper button.custom-mobile-menu-btn:focus,
+.main-header button.custom-mobile-menu-btn:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25) !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: #1976d2 !important;
+  color: #1976d2 !important;
+}
+
+button.custom-mobile-menu-btn:active,
+.header-wrapper button.custom-mobile-menu-btn:active,
+.main-header button.custom-mobile-menu-btn:active {
+  background: rgba(25, 118, 210, 0.2) !important;
+  background-color: rgba(25, 118, 210, 0.2) !important;
+  border-color: #0d47a1 !important;
+  transform: none !important;
+  color: #0d47a1 !important;
+}
+
+.hamburger-svg {
+  transition: all 0.3s ease;
+}
+
+.custom-mobile-menu-btn:hover .hamburger-svg path {
+  stroke: #0d47a1;
+}
+
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 18px;
+  height: 14px;
+  cursor: pointer;
+}
+
+.hamburger-lines span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #1976d2;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+}
+
+.custom-mobile-menu-btn:hover .hamburger-lines span {
+  background-color: #0d47a1;
+}
+
+.hamburger-icon {
+  color: #1976d2;
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+
+.custom-mobile-menu-btn:hover .hamburger-icon {
+  color: #0d47a1;
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none !important;
+  color: #1976d2 !important;
+  border: 1px solid #1976d2 !important;
   background: transparent !important;
 }
 
-.header-search-btn:hover {
+.header-menubar .p-menubar-end .mobile-menu-btn {
+  display: none !important;
+}
+
+.mobile-menu-btn:hover {
+  color: #0d47a1 !important;
+  border-color: #0d47a1 !important;
+  background: rgba(25, 118, 210, 0.1) !important;
+}
+
+.mobile-menu-btn:focus {
   color: #1976d2 !important;
   border-color: #1976d2 !important;
   background: rgba(25, 118, 210, 0.05) !important;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25) !important;
+}
+
+.mobile-menu-btn:active {
+  color: #0d47a1 !important;
+  border-color: #0d47a1 !important;
+  background: rgba(25, 118, 210, 0.15) !important;
+  box-shadow: none !important;
+}
+
+/* Override PrimeReact Button styles for mobile menu */
+.p-button.mobile-menu-btn,
+.p-button.mobile-menu-btn .p-button-icon {
+  color: #1976d2 !important;
+}
+
+.p-button.mobile-menu-btn:hover,
+.p-button.mobile-menu-btn:hover .p-button-icon {
+  color: #0d47a1 !important;
+}
+
+.p-button.mobile-menu-btn:focus,
+.p-button.mobile-menu-btn:focus .p-button-icon {
+  color: #1976d2 !important;
+}
+
+.p-button.mobile-menu-btn:active,
+.p-button.mobile-menu-btn:active .p-button-icon {
+  color: #0d47a1 !important;
+}
+
+/* Specific icon override */
+.mobile-menu-btn .pi-bars,
+.p-button.mobile-menu-btn .pi-bars,
+.header-menubar .mobile-menu-btn .pi-bars {
+  color: #1976d2 !important;
+  font-size: 1.2rem !important;
+}
+
+.mobile-menu-btn:hover .pi-bars,
+.p-button.mobile-menu-btn:hover .pi-bars {
+  color: #0d47a1 !important;
+}
+
+.mobile-menu-btn:focus {
+  color: #1976d2 !important;
+  border-color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.05) !important;
+  box-shadow: none !important;
+}
+
+.mobile-menu-btn:active {
+  color: #1976d2 !important;
+  border-color: #1976d2 !important;
+  background: rgba(25, 118, 210, 0.1) !important;
+  box-shadow: none !important;
+}
+
+/* Mobile Sidebar */
+.mobile-sidebar {
+  width: 320px !important;
+  background: white !important;
+  z-index: 1002 !important;
+}
+
+.mobile-sidebar .p-sidebar-content {
+  padding: 0 !important;
+}
+
+.mobile-menu {
+  padding: 2rem 0;
+}
+
+.mobile-logo {
+  text-align: center;
+  padding: 0 1rem 2rem 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 2rem;
+}
+
+.sidebar-logo {
+  height: 3rem;
+}
+
+.mobile-nav {
+  padding: 0 1rem;
+}
+
+.mobile-nav-item {
+  width: 100%;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.mobile-nav-item:hover {
+  background: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+}
+
+.mobile-contact {
+  padding: 2rem 1rem 0 1rem;
+  border-top: 1px solid #e0e0e0;
+  margin-top: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.contact-item i {
+  color: #1976d2;
+  width: 16px;
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .top-bar {
+@media (max-width: 1024px) {
+  .top-bar .flex div:first-child {
     display: none;
   }
   
@@ -103,15 +385,68 @@
   
   .header-menubar .p-menuitem-link {
     font-size: 0.875rem !important;
+    padding: 0.5rem 0 !important;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 900px) {
   .header-menubar .p-menubar-root-list {
+    display: none !important;
+  }
+  
+  .mobile-menu-wrapper {
+    display: flex !important;
+  }
+  
+  .custom-mobile-menu-btn,
+  button.custom-mobile-menu-btn,
+  .header-wrapper button.custom-mobile-menu-btn,
+  .main-header button.custom-mobile-menu-btn {
+    display: flex !important;
+    background: transparent !important;
+    background-color: transparent !important;
+  }
+  
+  .mobile-menu-btn,
+  .header-menubar .p-menubar-end .mobile-menu-btn,
+  .header-menubar .mobile-menu-btn {
+    display: none !important;
+  }
+  
+  .header-menubar .p-menubar-end {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar {
     display: none;
   }
   
-  .header-menubar .p-menubar-button {
-    display: block !important;
+  .main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+  }
+  
+  .header-menubar .p-menubar-start {
+    margin-right: 1rem;
+  }
+  
+  .mobile-sidebar {
+    width: 350px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-logo {
+    height: 2rem;
+  }
+  
+  .mobile-sidebar {
+    width: 90% !important;
+    max-width: 350px !important;
   }
 }

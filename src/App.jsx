@@ -8,6 +8,7 @@ import { Card } from 'primereact/card'
 // Components
 import Header from './components/common/Header'
 import Footer from './components/common/Footer'
+import FloatingButtons from './components/common/FloatingButtons'
 
 // Pages
 import Home from './pages/Home/Home'
@@ -16,6 +17,7 @@ import Products from './pages/Products/Products'
 import ProductDetail from './pages/ProductDetail/ProductDetail'
 import News from './pages/News/News'
 import NewsDetail from './pages/NewsDetail/NewsDetail'
+import Contact from './pages/Contact/Contact'
 
 
 import './App.css'
@@ -36,6 +38,7 @@ function App() {
             <Route path="/san-pham/:slug" element={<ProductDetail />} />
             <Route path="/tin-tuc" element={<News />} />
             <Route path="/tin-tuc/:slug" element={<NewsDetail />} />
+            <Route path="/lien-he" element={<Contact />} />
             <Route path="/demo" element={
               <div className="flex flex-column align-items-center p-4">
                 <Card title="Welcome to TopLife WaterAgent" className="w-full md:w-30rem mt-4">
@@ -58,6 +61,9 @@ function App() {
         </main>
 
         <Footer />
+        
+        {/* Floating Buttons - Scroll to Top & Messenger */}
+        <FloatingButtons />
       </div>
     </Router>
   )
